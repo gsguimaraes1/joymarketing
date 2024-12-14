@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternando Páginas Power BI</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+    <script>
+        const urls = [
+            'https://app.powerbi.com/view?r=eyJrIjoiNzM2ZDEwNmEtNDkzYS00Yzc4LThjNmQtMjViNjdkZTgzOWVlIiwidCI6ImU1ZjY5ZGFiLTdkYWYtNGU1MS04MjdhLTEwNjkxOWE4ZjU5MCJ9&pageName=8d1b5fa55336b8f18585',
+            'https://app.powerbi.com/view?r=eyJrIjoiNzM2ZDEwNmEtNDkzYS00Yzc4LThjNmQtMjViNjdkZTgzOWVlIiwidCI6ImU1ZjY5ZGFiLTdkYWYtNGU1MS04MjdhLTEwNjkxOWE4ZjU5MCJ9&pageName=45f471235c75984c9494',
+            'https://app.powerbi.com/view?r=eyJrIjoiNzM2ZDEwNmEtNDkzYS00Yzc4LThjNmQtMjViNjdkZTgzOWVlIiwidCI6ImU1ZjY5ZGFiLTdkYWYtNGU1MS04MjdhLTEwNjkxOWE4ZjU5MCJ9&pageName=42f4d49f5b62e2f173bb',
+            'https://app.powerbi.com/view?r=eyJrIjoiNzM2ZDEwNmEtNDkzYS00Yzc4LThjNmQtMjViNjdkZTgzOWVlIiwidCI6ImU1ZjY5ZGFiLTdkYWYtNGU1MS04MjdhLTEwNjkxOWE4ZjU5MCJ9&pageName=297185335009644b6206'
+        ];
+
+        let currentIndex = 0;
+
+        function switchPage() {
+            document.getElementById('powerbi-frame').src = urls[currentIndex];
+            currentIndex = (currentIndex + 1) % urls.length;
+        }
+
+        setInterval(switchPage, 60000); // Alterna a cada 6 segundos (6000 ms)
+    </script>
+</head>
+<body onload="switchPage()">
+    <iframe id="powerbi-frame"></iframe>
+</body>
+</html>
+
